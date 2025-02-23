@@ -72,8 +72,8 @@ def main():
     # Getting the input data from the user
     district = st.selectbox("Select a District", list(district_data.keys()))
     if district:
-    area = district_data[district]
-    st.write(f"The area code of {district} is {area}")
+        area = district_data[district]
+        st.write(f"The area code of {district} is {area}")
 
     area = st.text_input('Area code of the house')
     bedrooms = st.text_input('Number of Bedrooms')
