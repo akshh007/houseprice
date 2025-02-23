@@ -8,6 +8,9 @@ from streamlit_option_menu import option_menu
 
 # Set the page config
 st.set_page_config(page_title='House Price Prediction System')
+
+#loading the model
+loaded_model = pickle.load(open('cost_predictor.sav','rb'))
 district_data = {
     "Ariyalur": 2000,
     "Chengalpattu": 2145,
@@ -49,8 +52,6 @@ district_data = {
     "Virudhunagar": 1836,
     "Bangalore": 1905
 }
-#loading the model
-loaded_model = pickle.load(open('cost_predictor.sav','rb'))
 
 # Sidebar for navigation
 with st.sidebar:
@@ -76,7 +77,7 @@ def hidden_price_prediction(input_data):
     return finalPrice
 
 if selected == 'Home':
-    st.title(' House Price Prediction System')
+    st.title('House Price Prediction System')
     st.markdown(
         """
         ### 🔍 What It Does:
@@ -96,14 +97,13 @@ if selected == 'Estimate Cost':
     st.title('House Price Prediction System')
 
     #getting the input data from the user
-    											
-    # Getting the input data from the user
     district = st.selectbox("Select a District", list(district_data.keys()))
     if district:
-    area = district_data[district]
-    st.write(f"The area code of {district} is {area}")
-
-    area = st.text_input('Area code of the house')
+        area = district_data[district]
+        st.write(f"The area code of {district} is {area}")
+								
+    # Getting the input data from the user
+    area = st.text_input('Area of the house')
     bedrooms = st.text_input('Number of Bedrooms')
     bathrooms = st.text_input('Number of Bathrooms')
     stories = st.text_input('Number of Storey')
@@ -117,7 +117,7 @@ if selected == 'Estimate Cost':
     
     sclarea = st.text_input('School / College nearby (0 or 1)')
     furnishingstatus = st.text_input('Furnishing status (unfurnished-0, semi-furnished-1, or furnished-2)')
-    
+
     # Initialize session state for price and hiddenPrice
     if 'price' not in st.session_state:
         st.session_state.price = 0
