@@ -7,7 +7,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 
 # Set the page config
-st.set_page_config(page_title='House Price Prediction System')
+st.set_page_config(page_title='HHouse Price Prediction System')
 
 # Loading the model
 try:
@@ -66,8 +66,10 @@ with st.sidebar:
     )
 
 def house_price_prediction(input_data):
-    input_data_numpy = np.asarray(input_data).reshape(1, -1)
-    prediction1 = loaded_model.predict(input_data_numpy)
+    # Define the feature names based on the model training
+    feature_names = ['area', 'bedrooms', 'bathrooms', 'stories', 'mainroad', 'guestroom', 'basement', 'hotwaterheating', 'airconditioning', 'parking', 'prefarea', 'furnishingstatus']
+    input_data_df = pd.DataFrame([input_data], columns=feature_names)
+    prediction1 = loaded_model.predict(input_data_df)
     return prediction1[0]
 
 def hidden_price_prediction(input_data):
