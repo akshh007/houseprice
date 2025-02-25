@@ -98,7 +98,7 @@ if selected == 'Estimate Cost':
         area = district_data[district]
         st.write(f"The area code of {district} is {area}")
 
-    area = st.text_input('Area of the house')
+    area = st.text_input('Area of the house', value=str(area))
     bedrooms = st.text_input('Number of Bedrooms')
     bathrooms = st.text_input('Number of Bathrooms')
     stories = st.text_input('Number of Storey')
@@ -140,7 +140,7 @@ if selected == 'Estimate Cost':
     st.subheader('Hidden Costs while buying the house')
     transferFee = st.text_input(" 1 Society Transfer Fee (Cost that goes to society fund)")
     maintainance = st.text_input(" 2 Maintainance Cost (per year)")
-    homeInsurance = st.text_input(" 3 Home Insurance (Basic - 3000, Comprehensive - 5000, Premium - 10000")
+    homeInsurance = st.text_input(" 3 Home Insurance (Basic - 3000, Comprehensive - 5000, Premium - 10000)")
     propertyTax = st.text_input(" 4 Property Tax (Enter 20.4 for residential & 34.68 for Commercial)")
     brokerFee = st.text_input(" 5 Brokerage")
     st.text(" 6 Sales Deed (Price * 0.06)")
