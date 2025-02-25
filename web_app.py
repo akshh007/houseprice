@@ -126,7 +126,7 @@ if selected == 'Estimate Cost':
 
     #creating a button
     if st.button('Predict the price of the house'):
-        try:
+        if True:
             area = int(area)
             bedrooms = int(bedrooms)
             bathrooms = int(bathrooms)
@@ -141,8 +141,8 @@ if selected == 'Estimate Cost':
             furnishingstatus = int(furnishingstatus)
             st.session_state.price = house_price_prediction([area,bedrooms,bathrooms,stories,mainroad,guestroom,basement,hotwaterheating,airconditioning,parking,prefarea,furnishingstatus])
             st.success(f'The price of the house is: {st.session_state.price}')
-        except ValueError:
-            st.error("Please enter valid numerical values for all inputs.")
+        #except ValueError:
+            #st.error("Please enter valid numerical values for all inputs.")
 
     st.divider()
 
