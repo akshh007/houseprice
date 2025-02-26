@@ -10,7 +10,7 @@ from streamlit_option_menu import option_menu
 st.set_page_config(page_title='House Price Prediction System')
 
 #loading the model
-loaded_model = pickle.load(open('Property_acquisition_cost_predictor.sav','rb'))
+loaded_model = pickle.load(open('cost_predictor.sav','rb'))
 district_data = {
     "Ariyalur": 2000,
     "Chengalpattu": 2145,
